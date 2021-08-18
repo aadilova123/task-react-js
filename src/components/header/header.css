@@ -1,0 +1,52 @@
+@import url(//db.onlinewebfonts.com/c/80f19ceeaa4fad006baf230b64f4dac9?family=Museo+Sans+Cyrl+700);
+
+.header{
+    height: 151px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header_menu a{
+    font-family: sans-serif;
+    color: #172853;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+.header_menu a:nth-child(2){
+    margin-left: 73px;
+}
+.header-right_block{
+    display: flex;
+}
+.signIn{
+    display: flex;
+    align-items: center;
+}
+.signIn span{
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 19px;
+    color: #172853;
+    margin-right: 17px;
+}
+.header-right_block input{
+    margin-left: 67px;
+    width: 248px;
+    height: 46px;
+    border: none;
+    border-radius: 6px;
+    color: #B0B3BC;
+    
+}
+
+.header-right_block input::placeholder{
+    color: #B0B3BC;
+    font-size: 16px;
+}
+
+.logo{
+    margin-right: 340px;
+}

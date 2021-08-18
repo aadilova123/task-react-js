@@ -1,0 +1,12 @@
+.app{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.app_container{
+    width: 80%;
+    /* background-color: white; */
+    /* height: 100%; */
+    
+}

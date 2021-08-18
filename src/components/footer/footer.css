@@ -1,0 +1,17 @@
+.footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social img:not(:first-child){
+    margin-left: 27px;
+}
+
+.footer p{
+    font-weight: 700;
+    font-size: 17px;
+    color: #172853;
+    line-height: 19px;
+}
