@@ -4,30 +4,60 @@ import './login.css'
 export default class Login extends Component{
     state={
         email:"",
-        password:""
+        password:"",
+        users: []
     }
     
-    registerForm =async (event)=>{
-        event.preventDefault();
+    componentDidMount =async (event)=>{
+        // event.preventDefault();
         const response = await fetch('https://api.doover.tech/api/token/',{
             method:'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({
-                email:this.state.email,
-                password:this.state.password
+                email:"admin@inzgiba.me",
+                password:"test123123"
             })
         })
         await response.json()
         .then(data=>{  
             if(data.access !== undefined){
                 localStorage.setItem('token', data.access)
-                this.props.loginActivate(true)
+                // this.props.loginActivate(true)
             }          
             
         })
         this.setState({
             email:"",
             password:""
+        })
+        this.getUsers();
+    }
+
+    getUsers = async () =>{
+        let token = localStorage.getItem('token')
+        const response = await fetch('https://api.doover.tech/api/users/', {
+            method: 'GET',
+            headers: {'Content-Type':'application/json',
+            Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+        })
+       await response.json()
+       .then(data=>{
+           console.log(data)
+           this.setState({
+               users:data
+           })
+       })
+    }
+
+    registerForm = (event) =>{
+        event.preventDefault();
+        this.state.users.map(({email,username})=>{
+            if(this.state.email === email && this.state.password === username){
+                console.log(username)
+                this.props.loginActivate(true, email)
+            }
         })
     }
      

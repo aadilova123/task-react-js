@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './content.css'
 import tovar from './tovar.png'
-
+import Product from '../product'
 export default class Content extends Component{
     state = {
         category: []
@@ -24,6 +24,7 @@ export default class Content extends Component{
        })
     }
 
+    
     render(){
         const {category} = this.state
         const products = category.map(item =>{
@@ -48,7 +49,9 @@ export default class Content extends Component{
                         {products}
                     </ul>
                 </div>
+                <Product/>
             </div>
+
         )
     }
 }

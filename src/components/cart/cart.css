@@ -1,0 +1,155 @@
+.cart{
+    width: 1000px;
+    height: 600px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_block{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_title{
+    position: absolute;
+width: 82px;
+height: 24px;
+left: 609px;
+top: 151px;
+
+font-family: Museo Sans Cyrl;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #B0B3BC;
+}
+
+
+.left_block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    height: 122px;
+    left: 114px;
+    top: 228px;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.right_block{
+   
+    width: 305px;
+    height: 225px;
+    left: 723px;
+    top: 228px;
+
+    /* White */
+
+    background: #FFFFFF;
+    /* shadow */
+
+    box-shadow: 0px -4px 12px rgba(23, 40, 83, 0.04);
+}
+
+.total{
+    
+
+font-family: Museo Sans Cyrl;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.016em;
+
+/* Black */
+
+color: #172853;
+
+}
+
+.cart_btn{
+    
+/* Main */
+margin-top: 35px;
+width: 271px;
+height: 45px;
+color: white;
+font-size: 16px;
+background: #4376FB;
+border-radius: 8px;
+border: none;
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.cart_items{
+    font-family: Museo Sans Cyrl;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+display: flex;
+align-items: center;
+text-align: right;
+
+/* Black */
+
+color: #172853;
+}
+
+.money{
+    font-family: Museo Sans Cyrl;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.016em;
+
+/* Black */
+
+color: #172853;
+
+}
+
+.category_name{
+    /* position: absolute; */
+width: 58px;
+height: 18px;
+left: 277px;
+/* top: 261px; */
+
+font-family: Museo Sans Cyrl;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+display: flex;
+align-items: center;
+
+/* Black */
+
+color: #172853;
+}
+

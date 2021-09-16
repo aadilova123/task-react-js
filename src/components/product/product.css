@@ -1,0 +1,45 @@
+.product_page{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product_item{
+    margin: 15px;
+    width: 376px;
+    height: 187px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wear{
+    width: 100px;
+    border-radius: 10px;
+}
+.product_descr_text{
+    color: #172853;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+}
+.add_to_basket{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+.add_to_basket span{
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 15px;
+}
+
+.info{
+    margin-bottom: 156px;
+}
+.minus{
+    padding-left: 15px;
+    visibility: hidden;
+}
