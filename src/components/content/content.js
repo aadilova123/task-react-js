@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import './content.css'
 import tovar from './tovar.png'
 import Product from '../product'
+import {Link} from 'react-router-dom'
 export default class Content extends Component{
     state = {
-        category: []
+        category: [],
+        uuid: ''
     }
 
     componentDidMount = async()=>{
@@ -18,20 +20,30 @@ export default class Content extends Component{
         })
        await response.json()
        .then(data=>{
+           console.log(data)
            this.setState({
                category: data
            })
        })
+       
     }
 
+    getProductsByCategory = (uuid)=>{
+        this.setState({
+            uuid: uuid
+        },()=>{
+            console.log(this.state.uuid)
+        })
+        
+    }
     
     render(){
         const {category} = this.state
         const products = category.map(item =>{
             return(
                 <li key = {item.uuid}>
-                    <img src={tovar} className="products_img"/>
-                    <span className="products_name">{item.name}</span>
+                    <img src={tovar} className="products_img" alt="img"/>
+                    <Link to="/products" onClick={()=>this.props.sendUuid(item.uuid)}><span className="products_name">{item.name}</span></Link>
                     <div className = "products_breadCrumps">
                         <p>Брюки</p>
                         <p>Верхняя одежда</p>
@@ -49,7 +61,7 @@ export default class Content extends Component{
                         {products}
                     </ul>
                 </div>
-                <Product/>
+                {/* <Product uuid={this.state.uuid}/> */}
             </div>
 
         )

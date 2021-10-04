@@ -10,9 +10,9 @@ export default class Footer extends Component{
     render(){
         return(
             <div className="footer">
-                <img src={logo}/>
+                <img src={logo} alt="alt"/>
                 <div className="social">
-                    <img src={y}/>
+                    <img src={y} alt="y"/>
                     <img src={wp}/>
                     <img src={f}/>
                 </div>

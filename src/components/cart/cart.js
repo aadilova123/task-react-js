@@ -39,7 +39,7 @@ export default class Cart extends Component{
         let arr = JSON.parse(localStorage.getItem("cartId"));
         this.state.products.filter(item =>{
             return arr.some(item2 =>{
-                if(item.uuid==item2){
+                if(item.uuid===item2){
                     newArr.push(item)
                     this.setState({
                         cartProducts:newArr
@@ -57,7 +57,7 @@ export default class Cart extends Component{
             count = count + item.price;
             return (
                 <div className="left_block">
-                    <img src={info} alt="info"/>                  
+                    <img src={info} alt="info" onClick={()=>this.props.getDescription(item.hint.title, item.hint.description)} />                  
                             <img src={w} alt="jacket"/>                            
                             <h4 className="category_name">{item.name}</h4>
                             <h4>Срок доставки / {item.duration}</h4>

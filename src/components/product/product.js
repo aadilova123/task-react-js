@@ -10,14 +10,11 @@ import Description from '../description/description'
 export default class Product extends Component{
     state = {
         products: [],
-        arr:[],
         isClicked: false,
-        descr_active: '',
-        active_descr_title: '',
-        active_descr_description: '',
+        
     }
 
-    componentDidMount = async()=>{
+    getProducts = async()=>{
         let token = localStorage.getItem('token')
         const response = await fetch('https://api.doover.tech/api/products/', {
             method: 'GET',
@@ -28,7 +25,7 @@ export default class Product extends Component{
         })
        await response.json()
        .then(data=>{
-           console.log(data);
+        //    console.log(data);
            this.setState({
                products: data
                
@@ -50,7 +47,8 @@ export default class Product extends Component{
         // if(this.state.isClicked){
         //     document.getElementsByClassName('minus').style.visibility='visible';
         // }
-        let newArr = [...this.state.arr, key]
+        let oldArr = JSON.parse(localStorage.getItem("cartId"));
+        let newArr = [...oldArr, key]
         this.setState({
             arr: newArr
         },()=>localStorage.setItem("cartId",JSON.stringify(this.state.arr)))
@@ -59,37 +57,33 @@ export default class Product extends Component{
         // localStorage.setItem(this.state.arr)
     }
 
-    getDescription = (title, description)=>{
-        this.setState({
-            descr_active: 'active',
-            active_descr_title: title,
-            active_descr_description: description
-        })      
-    
-    }
+   
     render(){
-        localStorage.setItem("cartId",JSON.stringify(this.state.arr));
-        const {products} = this.state
-        let count = JSON.parse(localStorage.getItem("cartId"));
-        
+        this.getProducts();
+        const {products} = this.state;
+        const {uuid} = this.props;
+        // let count = JSON.parse(localStorage.getItem("cartId"));//        
         // count.filter(item => item == item.uuid).length
-        const items = products.map(item =>{
-            let newArr = count.filter(item=> item === item.uuid).length;
-    
+        // console.log(products)
+        let productsByCategory = products.filter(item=>item.category==uuid)
+        const items = productsByCategory.map(item =>{
+            // let newArr = count.filter(item => item == item.uuid).length;            
+            
             return(
                     <div className = "product_item" key={item.uuid}>
                     <img src = {wear} className="wear"/>
                     <div className = "product_descr">
+                        {/* <p className="product_descr_text">{item.category}</p> */}
                         <p className ="product_descr_text">{item.name}</p>
-                        <p className ="product_descr_text">Срок доставки / 2 дня</p>
+                        <p className ="product_descr_text" onClick={()=>console.log(productsByCategory)}>Срок доставки / 2 дня</p>
                         <p className ="product_descr_text">{item.price}</p>
                         <div className="add_to_basket">
                             <img src={plus} onClick={()=>this.setItemtoLocalStorage(item.uuid)}/>
-                            <span>{newArr}</span>
+                            <span>0</span>
                             <img src={minus} className = "minus"/>
                         </div>
                     </div>
-                    <img src = {info} className = "info" onClick={()=>this.getDescription(item.hint.title, item.hint.description)}/>
+                    <img src = {info} className = "info" onClick={()=>this.props.getDescription(item.hint.title, item.hint.description)}/>
                 </div>
             )
         })
@@ -97,8 +91,8 @@ export default class Product extends Component{
         return(
             <div className = "product_page">                
                     {items}    
-                <Description descr_active={this.state.descr_active} get_active={(item)=>this.setState({descr_active:item})} active_descr_title={this.state.active_descr_title} active_descr_description={this.state.active_descr_description} />                
             </div>
+            
         )
     }
 }

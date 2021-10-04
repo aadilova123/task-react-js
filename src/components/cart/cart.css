@@ -1,6 +1,6 @@
 .cart{
     width: 1000px;
-    height: 600px;
+    min-height: 500px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -8,6 +8,7 @@
 
 .cart_block{
     width: 1000px;
+
     display: flex;
     justify-content: space-between;
 }

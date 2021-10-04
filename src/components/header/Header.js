@@ -16,11 +16,11 @@ export default class Header extends Component{
                 <Link to='/cart'>Корзина</Link>
             </div>
             <div className="header-right_block">
-                <img lassName="logo" src={logo}/>
+                <img lassName="logo" src={logo} alt="img"/>
                 <input type="text" placeholder="Найти вещь"/>
                 <div className="signIn">
                     <span>{sendUsername}</span>
-                    <img src={img}/>
+                    <img src={img} alt="img"/>
                 </div>
             </div>
             </div>

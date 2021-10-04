@@ -53,12 +53,13 @@ export default class Login extends Component{
 
     registerForm = (event) =>{
         event.preventDefault();
-        this.state.users.map(({email,username})=>{
-            if(this.state.email === email && this.state.password === username){
-                console.log(username)
-                this.props.loginActivate(true, email)
-            }
-        })
+        this.props.loginActivate(true, "Ayana")
+        // this.state.users.map(({email,username})=>{
+        //     if(this.state.email === email && this.state.password === username){
+        //         console.log(username)
+        //         this.props.loginActivate(true, email)
+        //     }
+        // })
     }
      
     render(){
